@@ -1,0 +1,306 @@
+conanfile.txt
+    ID: 4ca3ad2ea1f5a7d1d3a656db0d9a7685f92f685c
+    BuildID: None
+    Requires:
+        HHHH/1.2.0@conan/stable
+        AAAA/1.1.0@conan/stable
+        IIII/1.0.0@conan/stable
+        FFFF/1.0.0@conan/stable
+        JJJJ/2.2.0@conan/stable
+        KKKK/0.0.1@conan/devel
+        SSSS/0.0.1@conan/devel
+RRRR/1.61.0@RRRR/stable
+    ID: 80206e07321641d2362b7a56ceaf8254914e44f7
+    BuildID: None
+    Remote: conan-local=http://github.com
+    URL: https://www.RRRR.org/
+    License: RRRR license
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2019-02-14 18:05:01
+    Required by:
+        qFFFF/1.4.3@conan/stable
+OOOO/1.2.0@conan/stable
+    ID: 6b27682a1227193c748478facaf1136d9d1a99c4
+    BuildID: None
+    Remote: conan-local=http://github.com
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2019-03-27 15:11:20
+    Required by:
+        HHHH/1.2.0@conan/stable
+    Requires:
+        GGGG/1.0.0@conan/stable
+        NNNN/1.1.0@conan/stable
+HHHH/1.2.0@conan/stable
+    ID: d52864754dba66a7c4f6eeb0ba0a768b77bf7312
+    BuildID: None
+    Remote: conan-local=http://github.com
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2019-03-27 15:15:52
+    Required by:
+        conanfile.txt
+    Requires:
+        OOOO/1.2.0@conan/stable
+        VVVV/4.0.0@conan/stable
+        QQQQ/1.0.0@conan/stable
+        EEEE/1.0.0@conan/stable
+        PPPP/1.0.0@conan/stable
+SSSS/0.0.1@conan/devel
+    ID: 9e8e12190b584e0f3fb57a14bf3e3fa72680dcdc
+    BuildID: None
+    Remote: None
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: None
+    Creation date: 2019-05-03 10:16:31
+    Required by:
+        conanfile.txt
+CCCC/1.0.0@conan/stable
+    ID: 5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    BuildID: None
+    Remote: conan-local=http://github.com
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2019-02-08 16:46:02
+    Required by:
+        NNNN/1.1.0@conan/stable
+        MMMM/1.0.0@conan/stable
+        LLLL/1.0.0@conan/stable
+        FFFF/1.0.0@conan/stable
+        BBBB/1.0.0@conan/stable
+VVVV/4.0.0@conan/stable
+    ID: a3db22ab1422178f517e64b3bfabf36abd45dcfc
+    BuildID: None
+    Remote: conan-local=http://github.com
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2019-02-11 16:52:34
+    Required by:
+        HHHH/1.2.0@conan/stable
+    Requires:
+        TTTT/6.9.2p1@prismtech/stable
+KKKK/0.0.1@conan/devel
+    ID: 9e8e12190b584e0f3fb57a14bf3e3fa72680dcdc
+    BuildID: None
+    Remote: None
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: None
+    Creation date: 2019-05-03 10:16:47
+    Required by:
+        conanfile.txt
+LLLL/1.0.0@conan/stable
+    ID: 0c093ec3093b537774e19816184238ed46f873d5
+    BuildID: None
+    Remote: conan-local=http://github.com
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2019-02-20 16:45:07
+    Required by:
+        LLLLfactory/1.0.0@conan/stable
+        UUUU/3.7.0@conan/stable
+    Requires:
+        CCCC/1.0.0@conan/stable
+LLLLfactory/1.0.0@conan/stable
+    ID: 0c9320632d7d7acf290b9bf635604f11b1b5093f
+    BuildID: None
+    Remote: conan-local=http://github.com
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2019-02-14 17:10:33
+    Required by:
+        JJJJ/2.2.0@conan/stable
+    Requires:
+        LLLL/1.0.0@conan/stable
+MMMM/1.0.0@conan/stable
+    ID: 0c093ec3093b537774e19816184238ed46f873d5
+    BuildID: None
+    Remote: conan-local=http://github.com
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2019-02-14 17:15:33
+    Required by:
+        UUUU/3.7.0@conan/stable
+    Requires:
+        CCCC/1.0.0@conan/stable
+TTTT/6.9.2p1@prismtech/stable
+    ID: 80043e232e8ab07f4b25e67652a9490d9ad33d91
+    BuildID: None
+    Remote: conan-local=http://github.com
+    URL: http://www.prismtech.com/vortex/vortex-opensplice
+    License: Commercial
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2019-02-08 13:54:14
+    Required by:
+        VVVV/4.0.0@conan/stable
+UUUU/3.7.0@conan/stable
+    ID: be38784b4c77b709c0b23c406ac82afe35ead6b3
+    BuildID: None
+    Remote: conan-local=http://github.com
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2019-02-19 23:58:29
+    Required by:
+        JJJJ/2.2.0@conan/stable
+    Requires:
+        LLLL/1.0.0@conan/stable
+        MMMM/1.0.0@conan/stable
+JJJJ/2.2.0@conan/stable
+    ID: b38b6d34bdef024a819a2bacf4ee47ee8f6e000f
+    BuildID: None
+    Remote: conan-local=http://github.com
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2019-02-21 14:39:15
+    Required by:
+        conanfile.txt
+    Requires:
+        UUUU/3.7.0@conan/stable
+        LLLLfactory/1.0.0@conan/stable
+EEEE/1.0.0@conan/stable
+    ID: 206899a7e244724cd7be85f6fee01cfe9f481c53
+    BuildID: None
+    Remote: conan-local=http://github.com
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2018-12-11 09:39:28
+    Required by:
+        HHHH/1.2.0@conan/stable
+    Requires:
+        DDDD/1.0.0@conan/stable
+QQQQ/1.0.0@conan/stable
+    ID: 4527f0691bd005b2eabe5846782f7c6c22c796dd
+    BuildID: None
+    Remote: conan-local=http://github.com
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2019-02-19 13:43:46
+    Required by:
+        HHHH/1.2.0@conan/stable
+    Requires:
+        qFFFF/1.4.3@conan/stable
+qFFFF/1.4.3@conan/stable
+    ID: fac46246a23c9b6676cf24e1ce7d550ae9ee1c10
+    BuildID: None
+    Remote: conan-local=http://github.com
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2019-02-19 13:19:24
+    Required by:
+        QQQQ/1.0.0@conan/stable
+    Requires:
+        RRRR/1.61.0@RRRR/stable
+GGGG/1.0.0@conan/stable
+    ID: 6b614fa6d936a033a8906b18e7938977f9fcfc8a
+    BuildID: None
+    Remote: conan-local=http://github.com
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2019-02-15 00:52:21
+    Required by:
+        IIII/1.0.0@conan/stable
+        AAAA/1.1.0@conan/stable
+        PPPP/1.0.0@conan/stable
+        OOOO/1.2.0@conan/stable
+    Requires:
+        BBBB/1.0.0@conan/stable
+NNNN/1.1.0@conan/stable
+    ID: 0c093ec3093b537774e19816184238ed46f873d5
+    BuildID: None
+    Remote: conan-local=http://github.com
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2019-03-15 08:53:33
+    Required by:
+        OOOO/1.2.0@conan/stable
+    Requires:
+        CCCC/1.0.0@conan/stable
+IIII/1.0.0@conan/stable
+    ID: 432157930b145dbee47507d8ee9d0a2e58386350
+    BuildID: None
+    Remote: conan-local=http://github.com
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2019-02-20 06:39:40
+    Required by:
+        conanfile.txt
+    Requires:
+        GGGG/1.0.0@conan/stable
+PPPP/1.0.0@conan/stable
+    ID: 432157930b145dbee47507d8ee9d0a2e58386350
+    BuildID: None
+    Remote: conan-local=http://github.com
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2019-02-14 17:05:35
+    Required by:
+        HHHH/1.2.0@conan/stable
+    Requires:
+        GGGG/1.0.0@conan/stable
+BBBB/1.0.0@conan/stable
+    ID: 0c093ec3093b537774e19816184238ed46f873d5
+    BuildID: None
+    Remote: conan-local=http://github.com
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2019-02-14 16:37:37
+    Required by:
+        GGGG/1.0.0@conan/stable
+    Requires:
+        CCCC/1.0.0@conan/stable
+AAAA/1.1.0@conan/stable
+    ID: 432157930b145dbee47507d8ee9d0a2e58386350
+    BuildID: None
+    Remote: conan-local=http://github.com
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2019-02-14 20:56:37
+    Required by:
+        conanfile.txt
+    Requires:
+        GGGG/1.0.0@conan/stable
+FFFF/1.0.0@conan/stable
+    ID: 0c093ec3093b537774e19816184238ed46f873d5
+    BuildID: None
+    Remote: conan-local=http://github.com
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2019-02-20 16:47:55
+    Required by:
+        conanfile.txt
+    Requires:
+        CCCC/1.0.0@conan/stable
+DDDD/1.0.0@conan/stable
+    ID: 5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    BuildID: None
+    Remote: conan-local=http://github.com
+    Recipe: Cache
+    Binary: Cache
+    Binary remote: conan-local
+    Creation date: 2018-11-26 11:25:40
+    Required by:
+        EEEE/1.0.0@conan/stable
