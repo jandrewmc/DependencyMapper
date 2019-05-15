@@ -4,3 +4,8 @@ Graph::Graph()
 {
 
 }
+
+void Graph::generateImage()
+{
+
+}

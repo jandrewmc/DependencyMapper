@@ -25,11 +25,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        graph.cpp \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        translatedata.cpp
 
 HEADERS += \
-        mainwindow.h
+        graph.h \
+        mainwindow.h \
+        translatedata.h
 
 FORMS += \
         mainwindow.ui
