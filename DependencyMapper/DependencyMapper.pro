@@ -33,7 +33,8 @@ SOURCES += \
 HEADERS += \
         graph.h \
         mainwindow.h \
-        translatedata.h
+        translatedata.h \
+    graphdata.h
 
 FORMS += \
         mainwindow.ui
@@ -42,3 +43,7 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    functions.txt \
+    ../DependencyMapperData.txt
