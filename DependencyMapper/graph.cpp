@@ -1,11 +1,18 @@
 #include "graph.h"
+#include "graphdata.h"
+#include <string>
+#include <unordered_map>
+#include <QList>
+#include <QString>
+#include <QHash>
 
-Graph::Graph()
+void Graph::addEdge(Edge edge)
 {
-
+    _edges.insert(edge);
 }
 
-void Graph::generateImage()
+void Graph::addNode(QString name)
 {
-
+    _nodes.insert(name);
 }
+

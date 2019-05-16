@@ -2,6 +2,7 @@
 #define GRAPHITEM_H
 
 #include <QPair>
+#include <QString>
 
 typedef QString Name;
 typedef QString Version;
