@@ -1,10 +1,9 @@
 #ifndef PARSECONANDATA_H
 #define PARSECONANDATA_H
 
-class QString;
-class QStringList;
-class GraphData;
-class GraphDataList;
+#include <QString>
+#include <QStringList>
+#include "graphdata.h"
 
 namespace dependencymapper
 {

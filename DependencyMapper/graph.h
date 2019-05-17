@@ -15,6 +15,7 @@ class Graph
 public:
     void addEdge(Edge edge);
     void addNode(QString name);
+    void processList(GraphDataList list);
 private:
     QSet<QString> _nodes;
     QSet<Edge> _edges;

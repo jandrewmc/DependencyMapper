@@ -28,11 +28,15 @@ SOURCES += \
         graph.cpp \
         main.cpp \
         mainwindow.cpp \
+        parseconandata.cpp \
+        readfile.cpp \
         translatedata.cpp
 
 HEADERS += \
         graph.h \
         mainwindow.h \
+    parseconandata.h \
+    readfile.h \
         translatedata.h \
     graphdata.h
 

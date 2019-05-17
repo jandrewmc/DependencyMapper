@@ -1,6 +1,7 @@
 #include "parseconandata.h"
 
 #include <QStringList>
+#include "graphdata.h"
 
 GraphDataList dependencymapper::ParseConanData::parseConanData(QString data)
 {
@@ -84,8 +85,6 @@ void dependencymapper::ParseConanData::processRequires(QString data, GraphData &
         processConanName(item, rp.first, rp.second);
         graphData.requires.append(rp);
     }
-
-    bool res = false;
 }
 
 void dependencymapper::ParseConanData::processRequiredBy(QString data, GraphData &graphData)
@@ -113,8 +112,6 @@ void dependencymapper::ParseConanData::processRequiredBy(QString data, GraphData
         processConanName(item, rbp.first, rbp.second);
         graphData.requiredBy.append(rbp);
     }
-
-    bool res = false;
 }
 
 void dependencymapper::ParseConanData::processConanName(QString item, QString &name, QString &version)
