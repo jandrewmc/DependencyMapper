@@ -83,7 +83,7 @@ void dependencymapper::ParseConanData::processRequires(QString data, GraphData &
     {
         RequiresPair rp;
         processConanName(item, rp.first, rp.second);
-        graphData.requires.append(rp);
+        graphData.requires_.append(rp);
     }
 }
 
@@ -110,7 +110,7 @@ void dependencymapper::ParseConanData::processRequiredBy(QString data, GraphData
     {
         RequiredByPair rbp;
         processConanName(item, rbp.first, rbp.second);
-        graphData.requiredBy.append(rbp);
+        graphData.requiredBy_.append(rbp);
     }
 }
 

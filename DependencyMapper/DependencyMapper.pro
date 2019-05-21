@@ -11,6 +11,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = DependencyMapper
 TEMPLATE = app
 
+DESTDIR = $$PWD/bin
+
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -26,6 +28,8 @@ CONFIG += c++11
 
 SOURCES += \
         graph.cpp \
+        graphtools.cpp \
+        graphviztools.cpp \
         main.cpp \
         mainwindow.cpp \
         parseconandata.cpp \
@@ -34,6 +38,8 @@ SOURCES += \
 
 HEADERS += \
         graph.h \
+    graphtools.h \
+    graphviztools.h \
         mainwindow.h \
     parseconandata.h \
     readfile.h \
@@ -42,11 +48,6 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui
-
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
     functions.txt \

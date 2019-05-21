@@ -5,7 +5,9 @@
 #include <readfile.h>
 #include "graphdata.h"
 #include <QString>
-#include <parseconandata.h>
+#include "parseconandata.h"
+#include "graphviztools.h"
+#include <QtDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -34,35 +36,12 @@ void MainWindow::on_generateBtn_clicked()
     GraphDataList list = pcd.parseConanData(rawData);
 
     // start from here
-
     Graph g;
     g.processList(list);
-    foreach (GraphData item, list)
-    {
-        QString name = item.name;
-        g.addNode(item.name);
+    QString pathFILE = g.generateDotFile();
+    //qDebug().nospace() << "TEST 2:" + pathFILE;
+    g.generateImage(pathFILE);
 
-        foreach (RequiresPair requires, item.requires)
-        {
-            QPair<QString, QString> edge;
-
-            edge.first = requires.first;
-            edge.second = name;
-
-            g.addEdge(edge);
-        }
-
-
-        foreach (RequiredByPair requiredBy, item.requiredBy)
-        {
-            QPair<QString, QString> edge;
-
-            edge.first = name;
-            edge.second = requiredBy.first;
-
-            g.addEdge(edge);
-        }
-    }
 }
 
 

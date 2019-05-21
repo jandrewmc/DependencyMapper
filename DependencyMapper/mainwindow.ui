@@ -30,14 +30,14 @@
    <widget class="QLabel" name="pathLbl">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>371</width>
-      <height>20</height>
+      <x>30</x>
+      <y>60</y>
+      <width>101</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt; font-style:italic;&quot;&gt;Path&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QComboBox" name="comboBox">

@@ -16,8 +16,8 @@ typedef QList<RequiredByPair> RequiredBy;
 struct GraphData {
     Name name;
     Version version;
-    Requires requires;
-    RequiredBy requiredBy;
+    Requires requires_;
+    RequiredBy requiredBy_;
 };
 
 typedef QList<GraphData> GraphDataList;

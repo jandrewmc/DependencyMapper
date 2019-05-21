@@ -16,9 +16,11 @@ public:
     void addEdge(Edge edge);
     void addNode(QString name);
     void processList(GraphDataList list);
+    QString generateDotFile();
+    void generateImage(QString filepath);
 private:
     QSet<QString> _nodes;
     QSet<Edge> _edges;
 };
 
-#endif // GRAPH_H
+#endif // GRAPH_H\
