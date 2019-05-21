@@ -59,5 +59,3 @@ void GraphvizTools::generateGraphviz(QString filepath)
     qDebug() << stderr;
     bool res = false;
 }
-
-
