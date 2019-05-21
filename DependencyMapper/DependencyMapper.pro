@@ -26,6 +26,7 @@ CONFIG += c++11
 
 SOURCES += \
         graph.cpp \
+        graphviztools.cpp \
         main.cpp \
         mainwindow.cpp \
         parseconandata.cpp \
@@ -34,6 +35,7 @@ SOURCES += \
 
 HEADERS += \
         graph.h \
+    graphviztools.h \
         mainwindow.h \
     parseconandata.h \
     readfile.h \
