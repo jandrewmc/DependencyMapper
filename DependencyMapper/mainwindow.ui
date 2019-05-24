@@ -6,43 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>466</width>
+    <height>352</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="generateBtn">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>180</y>
-      <width>113</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <weight>75</weight>
-      <bold>true</bold>
-      <underline>false</underline>
-     </font>
-    </property>
-    <property name="cursor">
-     <cursorShape>ArrowCursor</cursorShape>
-    </property>
-    <property name="text">
-     <string>Generate</string>
-    </property>
-   </widget>
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>78</x>
-      <y>160</y>
-      <width>91</width>
+      <x>74</x>
+      <y>170</y>
+      <width>113</width>
       <height>32</height>
      </rect>
     </property>
@@ -55,6 +32,9 @@
       <strikeout>false</strikeout>
       <kerning>true</kerning>
      </font>
+    </property>
+    <property name="currentText">
+     <string>XML</string>
     </property>
     <item>
      <property name="text">
@@ -70,7 +50,7 @@
    <widget class="QPushButton" name="browseBtn">
     <property name="geometry">
      <rect>
-      <x>68</x>
+      <x>74</x>
       <y>110</y>
       <width>113</width>
       <height>32</height>
@@ -89,8 +69,8 @@
    <widget class="QLabel" name="LBLnasalogo">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>10</y>
+      <x>20</x>
+      <y>13</y>
       <width>91</width>
       <height>21</height>
      </rect>
@@ -113,7 +93,7 @@
    <widget class="QLabel" name="LBLselectfile">
     <property name="geometry">
      <rect>
-      <x>93</x>
+      <x>95</x>
       <y>90</y>
       <width>71</width>
       <height>20</height>
@@ -129,9 +109,9 @@
    <widget class="QLabel" name="LBLfiletype">
     <property name="geometry">
      <rect>
-      <x>96</x>
-      <y>140</y>
-      <width>71</width>
+      <x>100</x>
+      <y>154</y>
+      <width>61</width>
       <height>16</height>
      </rect>
     </property>
@@ -142,10 +122,10 @@
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>50</y>
-      <width>341</width>
-      <height>181</height>
+      <x>20</x>
+      <y>58</y>
+      <width>427</width>
+      <height>233</height>
      </rect>
     </property>
     <property name="font">
@@ -180,8 +160,8 @@
       <rect>
        <x>20</x>
        <y>20</y>
-       <width>151</width>
-       <height>141</height>
+       <width>181</width>
+       <height>193</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -197,14 +177,35 @@ border-color: #2649a9;
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
+     <widget class="QCheckBox" name="fileCheckBox">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>140</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgba(0,0,0,0);
+color: rgb(27, 61, 150);</string>
+      </property>
+      <property name="text">
+       <string>Show File 
+Dependencies</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QLabel" name="GraphImg">
      <property name="geometry">
       <rect>
-       <x>178</x>
-       <y>30</y>
-       <width>161</width>
-       <height>101</height>
+       <x>215</x>
+       <y>36</y>
+       <width>211</width>
+       <height>131</height>
       </rect>
      </property>
      <property name="text">
@@ -217,12 +218,35 @@ border-color: #2649a9;
       <bool>true</bool>
      </property>
     </widget>
+    <widget class="QPushButton" name="generateBtn">
+     <property name="geometry">
+      <rect>
+       <x>254</x>
+       <y>170</y>
+       <width>113</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+       <underline>false</underline>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>ArrowCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>Generate</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QLabel" name="LBLdependencymapper">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>32</y>
+      <x>20</x>
+      <y>36</y>
       <width>171</width>
       <height>16</height>
      </rect>
@@ -243,8 +267,8 @@ border-color: #2649a9;
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>401</width>
-      <height>261</height>
+      <width>481</width>
+      <height>321</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -262,7 +286,6 @@ border-color: #2649a9;
    <zorder>frame</zorder>
    <zorder>browseBtn</zorder>
    <zorder>comboBox</zorder>
-   <zorder>generateBtn</zorder>
    <zorder>LBLdependencymapper</zorder>
    <zorder>LBLselectfile</zorder>
    <zorder>LBLfiletype</zorder>
