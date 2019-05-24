@@ -17,6 +17,17 @@ QString GraphvizTools::dataToDot(QSet<Edge> edges)
     if (file.open(QIODevice::WriteOnly | QIODevice::Text))
     {
         file.write("digraph G {\n");
+        file.write("subgraph clusterApple {\n");
+
+        QString nLine = "node [style=filled fillcolor=\"#ffffff\"]\n";
+        file.write(nLine.toLocal8Bit());
+
+        nLine = "node [color=\"#ff0000\"]\n";
+        file.write(nLine.toLocal8Bit());
+
+        nLine = "bgcolor = \"#0000ff2f\"\n";
+        file.write(nLine.toLocal8Bit());
+
         foreach(Edge e, edges)
         {
             if (e.second == "conanfile.txt")
@@ -31,6 +42,18 @@ QString GraphvizTools::dataToDot(QSet<Edge> edges)
                 file.write(line.toLocal8Bit());
             }
         }
+
+        file.write("}\n");
+        //
+        QString newLine = "bgcolor=\"#0000000f\"\n";
+        file.write(newLine.toLocal8Bit());
+
+        newLine = "label = \"Dependency Mapper\nNASA\"\n";
+        file.write(newLine.toLocal8Bit());
+
+        newLine = "fontsize=20\n";
+        file.write(newLine.toLocal8Bit());
+
         file.write("}");
     }
 
@@ -47,7 +70,7 @@ void GraphvizTools::generateGraphviz(QString filepath)
          << filepath
          << ">"
          << "/Users/colin_brosnan/nasadev/DependencyMapper/output.png";
-//         << QString("%1 > %2").arg(filepath, "/Users/colin_brosnan/nasadev/DependencyMapper/output.png");
+         //<< QString("%1 > %2").arg(filepath, "/Users/colin_brosnan/nasadev/DependencyMapper/output.png");
 
     QProcess p;
     p.start("/usr/local/bin/dot", args);
@@ -59,3 +82,5 @@ void GraphvizTools::generateGraphviz(QString filepath)
     qDebug() << stderr;
     bool res = false;
 }
+
+

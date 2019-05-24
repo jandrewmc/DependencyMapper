@@ -15,7 +15,10 @@ class Graph
 public:
     void addEdge(Edge edge);
     void addNode(QString name);
+    void getEdges();
     void processList(GraphDataList list);
+    QSet<Edge> getEdgesFilename();
+    QSet<Edge> getEdgesNoFilename();
     QString generateDotFile();
     void generateImage(QString filepath);
 private:

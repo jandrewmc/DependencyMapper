@@ -45,21 +45,38 @@ void Graph::processList(GraphDataList list)
             addEdge(edge);
         }
     }
+    //Redundant test
+    QPair<QString, QString> edge;
+    edge.first = "CCCC";
+    edge.second = "UUUU";
+    addEdge(edge);
 
+    //Cycle test
+    edge.first = "CCCC";
+    edge.second = "cycle1";
+    addEdge(edge);
+    edge.first = "cycle1";
+    edge.second = "cycle2";
+    addEdge(edge);
+    edge.first = "cycle2";
+    edge.second = "CCCC";
+    addEdge(edge);
 }
 
-QString Graph::generateDotFile()
+QSet<Edge> Graph::getEdgesFilename()
 {
-    GraphvizTools x;
-    QString dotFilePath(x.dataToDot(_edges));
-    //qDebug().nospace() << "TEST:" + dotFilePath;
-    return dotFilePath;
-
+    return _edges;
 }
 
-void Graph::generateImage(QString filepath)
+QSet<Edge> Graph::getEdgesNoFilename()
 {
-    GraphvizTools x;
-    x.generateGraphviz(filepath);
+    QSet<Edge> ret = _edges;
+    foreach (Edge e, ret)
+    {
+        if (e.second == "conanfile.txt")
+            ret.remove(e);
+    }
+
+    return ret;
 }
 

@@ -8,6 +8,8 @@
 #include "parseconandata.h"
 #include "graphviztools.h"
 #include <QtDebug>
+#include "graphtools.h"
+#include <QCheckBox>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -15,7 +17,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->pathLbl->setText("");
-
     ui->generateBtn->setEnabled(false);
 }
 
@@ -37,14 +38,39 @@ void MainWindow::on_generateBtn_clicked()
 
     // start from here
     Graph g;
+    GraphTools gt;
+    bool showFileDependencies;
+
+
+    showFileDependencies = ui->fileCheckBox->isChecked();
+
     g.processList(list);
-    QString pathFILE = g.generateDotFile();
-    //qDebug().nospace() << "TEST 2:" + pathFILE;
-    g.generateImage(pathFILE);
+    gt.setGraph(g);
+    QString pathFILE = gt.generateDotFile(showFileDependencies);
+
+    //QSet<Edge> _edgesS = _graph.getEdgesFilename();
+    bool red = false;
+    foreach (Edge e, g.getEdgesFilename())
+    {
+        red = gt.detectRedundanciesHelper(e.first, e.second);
+        if (red)
+            qDebug() << e.first + ", " + e.second + " is redundant";
+
+    }
+
+    bool cycl = false;
+    QList<QString> prev;
+    foreach (Edge e, g.getEdgesFilename())
+    {
+        cycl = gt.detectCycles(e.first,prev);
+        if (cycl)
+            qDebug() << e.first + " is cyclical";
+    }
+    //
+
+    gt.generateGraph(pathFILE);
 
 }
-
-
 
 void MainWindow::on_browseBtn_clicked()
 {
@@ -56,3 +82,5 @@ void MainWindow::on_browseBtn_clicked()
     }
     ui->generateBtn->setEnabled(!ui->pathLbl->text().isEmpty());
 }
+
+
