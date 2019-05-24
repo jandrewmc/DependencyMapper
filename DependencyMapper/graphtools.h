@@ -11,10 +11,10 @@ class GraphTools
 {
 public:
     void generateGraph(QString filepath);
-    bool detectRedundanciesHelper(QString n1, QString n2);
-    bool detectRedundancies(QString n1, QString n2, QString start);
+    bool detectRedundanciesHelper(QString n1, QString n2,  QSet<Edge> edgs);
+    bool detectRedundancies(QString n1, QString n2, QString start, QSet<Edge> edgs);
     QString generateDotFile(bool showFileDependencies);
-    bool detectCycles(QString n, QList<QString> list);
+    QList<QString> detectCycles(QString n, QList<QString> list, QSet<Edge> edgs);
     void setGraph(Graph graph);
 private:
     Graph _graph;

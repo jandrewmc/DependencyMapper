@@ -48,11 +48,16 @@ void MainWindow::on_generateBtn_clicked()
     gt.setGraph(g);
     QString pathFILE = gt.generateDotFile(showFileDependencies);
 
-    //QSet<Edge> _edgesS = _graph.getEdgesFilename();
+    QSet<Edge> _edgesS;
+    if (showFileDependencies)
+        _edgesS = g.getEdgesFilename();
+    else
+        _edgesS = g.getEdgesNoFilename();
+
     bool red = false;
-    foreach (Edge e, g.getEdgesFilename())
+    foreach (Edge e, _edgesS)
     {
-        red = gt.detectRedundanciesHelper(e.first, e.second);
+        red = gt.detectRedundanciesHelper(e.first, e.second, _edgesS);
         if (red)
             qDebug() << e.first + ", " + e.second + " is redundant";
 
@@ -60,13 +65,30 @@ void MainWindow::on_generateBtn_clicked()
 
     bool cycl = false;
     QList<QString> prev;
-    foreach (Edge e, g.getEdgesFilename())
+    QSet<QString> cycle;
+    QList<QString> individualCycle;
+    /*
+    foreach (Edge e, _edgesS)
     {
-        cycl = gt.detectCycles(e.first,prev);
+        cycl = gt.detectCycles(e.first,prev, _edgesS);
         if (cycl)
-            qDebug() << e.first + " is cyclical";
+        {
+            cycle.insert(e.first);
+        }
     }
-    //
+    QString fullCycle;
+    foreach (QString n, cycle)
+    {
+        fullCycle += n + ", ";
+    }
+    qDebug().nospace() << fullCycle + " are in a cyclical redundancy";
+    */
+    foreach (Edge e, _edgesS)
+    {
+        individualCycle = gt.detectCycles(e.first,prev, _edgesS);
+            qDebug() << individualCycle;
+        qDebug() << "is cyclical\n";
+    }
 
     gt.generateGraph(pathFILE);
 
