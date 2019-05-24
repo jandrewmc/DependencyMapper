@@ -5,7 +5,11 @@
 #include <readfile.h>
 #include "graphdata.h"
 #include <QString>
-#include <parseconandata.h>
+#include "parseconandata.h"
+#include "graphviztools.h"
+#include <QtDebug>
+#include "graphtools.h"
+#include <QCheckBox>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -13,7 +17,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->pathLbl->setText("");
-
     ui->generateBtn->setEnabled(false);
 }
 
@@ -34,38 +37,40 @@ void MainWindow::on_generateBtn_clicked()
     GraphDataList list = pcd.parseConanData(rawData);
 
     // start from here
-
     Graph g;
+    GraphTools gt;
+    bool showFileDependencies;
+
+
+    showFileDependencies = ui->fileCheckBox->isChecked();
+
     g.processList(list);
-    foreach (GraphData item, list)
+    gt.setGraph(g);
+    QString pathFILE = gt.generateDotFile(showFileDependencies);
+
+    //QSet<Edge> _edgesS = _graph.getEdgesFilename();
+    bool red = false;
+    foreach (Edge e, g.getEdgesFilename())
     {
-        QString name = item.name;
-        g.addNode(item.name);
+        red = gt.detectRedundanciesHelper(e.first, e.second);
+        if (red)
+            qDebug() << e.first + ", " + e.second + " is redundant";
 
-        foreach (RequiresPair requires, item.requires)
-        {
-            QPair<QString, QString> edge;
-
-            edge.first = requires.first;
-            edge.second = name;
-
-            g.addEdge(edge);
-        }
-
-
-        foreach (RequiredByPair requiredBy, item.requiredBy)
-        {
-            QPair<QString, QString> edge;
-
-            edge.first = name;
-            edge.second = requiredBy.first;
-
-            g.addEdge(edge);
-        }
     }
+
+    bool cycl = false;
+    QList<QString> prev;
+    foreach (Edge e, g.getEdgesFilename())
+    {
+        cycl = gt.detectCycles(e.first,prev);
+        if (cycl)
+            qDebug() << e.first + " is cyclical";
+    }
+    //
+
+    gt.generateGraph(pathFILE);
+
 }
-
-
 
 void MainWindow::on_browseBtn_clicked()
 {
@@ -77,3 +82,5 @@ void MainWindow::on_browseBtn_clicked()
     }
     ui->generateBtn->setEnabled(!ui->pathLbl->text().isEmpty());
 }
+
+

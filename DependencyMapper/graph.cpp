@@ -1,10 +1,12 @@
 #include "graph.h"
 #include "graphdata.h"
+#include "graphviztools.h"
 #include <string>
 #include <unordered_map>
 #include <QList>
 #include <QString>
 #include <QHash>
+#include <QtDebug>
 
 void Graph::addEdge(Edge edge)
 {
@@ -18,35 +20,63 @@ void Graph::addNode(QString name)
 
 void Graph::processList(GraphDataList list)
 {
-    Graph g;
     foreach (GraphData item, list)
     {
         QString name = item.name;
-        g.addNode(item.name);
+        addNode(item.name);
 
-        foreach (RequiresPair requires, item.requires)
+        foreach (RequiresPair requires_, item.requires_)
         {
             QPair<QString, QString> edge;
 
-            edge.first = requires.first;
+            edge.first = requires_.first;
             edge.second = name;
 
-            g.addEdge(edge);
+            addEdge(edge);
         }
 
-
-        foreach (RequiredByPair requiredBy, item.requiredBy)
+        foreach (RequiredByPair requiredBy_, item.requiredBy_)
         {
             QPair<QString, QString> edge;
 
             edge.first = name;
-            edge.second = requiredBy.first;
+            edge.second = requiredBy_.first;
 
-            g.addEdge(edge);
+            addEdge(edge);
         }
     }
-}
-digraph G
-{
+    //Redundant test
+    QPair<QString, QString> edge;
+    edge.first = "CCCC";
+    edge.second = "UUUU";
+    addEdge(edge);
 
+    //Cycle test
+    edge.first = "CCCC";
+    edge.second = "cycle1";
+    addEdge(edge);
+    edge.first = "cycle1";
+    edge.second = "cycle2";
+    addEdge(edge);
+    edge.first = "cycle2";
+    edge.second = "CCCC";
+    addEdge(edge);
 }
+
+QSet<Edge> Graph::getEdgesFilename()
+{
+    return _edges;
+}
+
+QSet<Edge> Graph::getEdgesNoFilename()
+{
+    QSet<Edge> ret = _edges;
+    foreach (Edge e, ret)
+    {
+        if (e.second == "conanfile.txt")
+            ret.remove(e);
+    }
+
+    return ret;
+}
+
