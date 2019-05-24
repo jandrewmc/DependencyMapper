@@ -84,7 +84,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../../Downloads/NASA_Worm_logo.svg</pixmap>
+     <pixmap resource="resources.qrc">:/Downloads/NASA_Worm_logo.svg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -180,9 +180,9 @@ border-color: #2649a9;
      <widget class="QCheckBox" name="fileCheckBox">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>140</y>
-        <width>111</width>
+        <x>5</x>
+        <y>120</y>
+        <width>171</width>
         <height>31</height>
        </rect>
       </property>
@@ -194,8 +194,28 @@ border-color: #2649a9;
 color: rgb(27, 61, 150);</string>
       </property>
       <property name="text">
-       <string>Show File 
-Dependencies</string>
+       <string>Show File Dependencies</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="showRedundanciesAndCycles_Btn">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>150</y>
+        <width>171</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgba(0,0,0,0);
+color: rgb(27, 61, 150);</string>
+      </property>
+      <property name="text">
+       <string>Show Redundancies and 
+              Cycles</string>
       </property>
      </widget>
     </widget>
@@ -212,7 +232,7 @@ Dependencies</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../../Downloads/newNASA.png</pixmap>
+      <pixmap resource="resources.qrc">:/Downloads/newNASA.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -280,6 +300,24 @@ Dependencies</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <widget class="QLabel" name="pathLbl">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>293</y>
+       <width>431</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <italic>true</italic>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Path Label&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
    </widget>
    <zorder>FRAMEouter</zorder>
    <zorder>LBLnasalogo</zorder>
@@ -301,6 +339,8 @@ Dependencies</string>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

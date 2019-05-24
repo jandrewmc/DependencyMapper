@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../../../Downloads/NASA_Worm_logo.svg</file>
+        <file>../../../Downloads/newNASA.png</file>
+    </qresource>
+</RCC>

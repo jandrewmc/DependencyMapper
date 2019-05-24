@@ -10,14 +10,33 @@
 #include <QtDebug>
 #include "graphtools.h"
 #include <QCheckBox>
+#include <QMap>
+
+namespace  {
+bool stringLessThan(const QString &v1, const QString &v2)
+{
+     return v1 < v2;
+}
+
+QString listKey(QList<QString> list)
+{
+    std::sort(list.begin(), list.end(), stringLessThan);
+    QString result;
+    result.append("[");
+    foreach (QString item, list)
+        result.append(item + ", ");
+    QString ret = result.mid(0, result.size()-1);
+    ret += "] is a cycle";
+    return ret;
+}
+}
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->pathLbl->setText("");
-    ui->generateBtn->setEnabled(false);
+    //ui->generateBtn->setEnabled(false);
 }
 
 MainWindow::~MainWindow()
@@ -40,9 +59,11 @@ void MainWindow::on_generateBtn_clicked()
     Graph g;
     GraphTools gt;
     bool showFileDependencies;
+    bool showRedundanciesAndCycles;
 
 
     showFileDependencies = ui->fileCheckBox->isChecked();
+    showRedundanciesAndCycles = ui->showRedundanciesAndCycles_Btn->isChecked();
 
     g.processList(list);
     gt.setGraph(g);
@@ -55,18 +76,19 @@ void MainWindow::on_generateBtn_clicked()
         _edgesS = g.getEdgesNoFilename();
 
     bool red = false;
-    foreach (Edge e, _edgesS)
+
+    if (showRedundanciesAndCycles)
     {
-        red = gt.detectRedundanciesHelper(e.first, e.second, _edgesS);
-        if (red)
-            qDebug() << e.first + ", " + e.second + " is redundant";
+        foreach (Edge e, _edgesS)
+        {
+            red = gt.detectRedundanciesHelper(e.first, e.second, _edgesS);
+            if (red)
+                qDebug() << e.first + ", " + e.second + " is redundant";
 
-    }
+        }
+     }
 
-    bool cycl = false;
-    QList<QString> prev;
-    QSet<QString> cycle;
-    QList<QString> individualCycle;
+    //bool cycl = false;
     /*
     foreach (Edge e, _edgesS)
     {
@@ -83,13 +105,70 @@ void MainWindow::on_generateBtn_clicked()
     }
     qDebug().nospace() << fullCycle + " are in a cyclical redundancy";
     */
-    foreach (Edge e, _edgesS)
-    {
-        individualCycle = gt.detectCycles(e.first,prev, _edgesS);
-            qDebug() << individualCycle;
-        qDebug() << "is cyclical\n";
-    }
 
+    if (showRedundanciesAndCycles)
+    {
+        QList<QString> prev;
+        QSet<QString> cycle;
+        QList<QString> individualCycle;
+        QSet<QString> allCycles;
+
+        QHash<QString, QList<QString> > allCycles2;
+
+
+
+        foreach (Edge e, _edgesS)
+        {
+            individualCycle = gt.detectCycles(e.first,prev, _edgesS);
+            if (individualCycle.size() != 0)
+            {
+                //qDebug() << individualCycle;
+                //qDebug() << "is cyclical\n";
+//                QMap<QString, int> map;
+
+                allCycles.insert(listKey(individualCycle));
+
+//                qSort(individualCycle.begin(), individualCycle.end(), stringLessThan);
+
+                //converting lists to maps to esnure they are ordered
+//                foreach (QString s, individualCycle)
+//                    map.insert(s, 0);
+//                allCycles.insert(map);
+            }
+        }
+
+        foreach (QString item, allCycles)
+        {
+            qDebug() << item;
+        }
+
+
+
+        //qDebug << allCycles;
+        /*
+        for (int i = 0; i < allCycles.count(); i++)
+        {
+            QList<QString> mapv2 = allCycles.val
+
+
+        }
+        */
+        /*
+        foreach (QMap<QString,int> m, listedSet)
+        {
+
+            //foreach(QString s, m)
+              //  test += s + ", ";
+        }
+
+
+        test += "]";
+        qDebug() << test;
+        */
+     }
+
+    //This method should run a command line function to generate a PNG image using the data.dot file we created.
+    //This should function properly with a rewrite on a non-MacOS system.
     gt.generateGraph(pathFILE);
 
 }

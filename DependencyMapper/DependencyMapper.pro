@@ -52,3 +52,6 @@ FORMS += \
 DISTFILES += \
     functions.txt \
     ../DependencyMapperData.txt
+
+RESOURCES += \
+    resources.qrc
